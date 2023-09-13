@@ -1,0 +1,5 @@
+node_modules
+.angular
+angular-web-pack
+ClientApp\.angular\cache\16.2.0
+ 

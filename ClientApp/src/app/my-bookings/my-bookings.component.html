@@ -1,0 +1,73 @@
+<h5 class="text-md-center m-5">My Bookings</h5>
+
+<div *ngFor="let booking of bookings" class="card bg-light text-dark  mt-5">
+  <div class="card-body text-center" style="padding: 20px; background-color:#e5ecf26e">
+    <h6 class="card-title ">{{booking.airline}}</h6>
+    <div class="card-title" style="color: #ff3939">{{booking.numberOfBookedSeats}} booked seat(s)</div>
+    <div class="d-grid text-center g-2">
+      <div class="row">
+        <div class="col">np
+          <div class="col m-3">
+            <fa-icon [icon]="faPlaneDeparture" style="font-size:20px;"></fa-icon>
+          </div>
+
+          <div class="col">
+
+            <fa-icon [icon]="faLocationDot"></fa-icon>
+            {{booking.departure?.place}}
+          </div>
+
+          <div class="col m-2">
+            {{booking.departure?.time | date}}
+
+          </div>
+
+          <div class="col">
+            <fa-icon [icon]="faClock"></fa-icon>
+            {{booking.departure?.time | date: 'shortTime'}}
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div style="display:flex;">
+            <fa-icon [icon]="faCircle" style="font-size:20px"></fa-icon>
+            <hr style="display:block; width: 100%; margin-top:20px;" />
+            <fa-icon [icon]="faPlane" style="font-size:20px"></fa-icon>
+          </div>
+
+          <fa-icon [icon]="faUsd" aria-hidden="true"></fa-icon>
+            {{booking.price}}
+          <br>
+
+        </div>
+          <div class="col">
+            <div class="col m-3">
+              <fa-icon [icon]="faPlaneArrival" style="font-size:20px;"></fa-icon>
+            </div>
+            <div class="col">
+
+              <fa-icon [icon]="faLocationDot"></fa-icon>
+
+              {{booking.departure?.place}}
+
+            </div>
+            <div class="col m-2 text-primary">
+              {{booking.arrival?.time | date}}
+              
+            </div>
+            <div class="col">
+
+              <fa-icon [icon]="faClock"></fa-icon>
+
+              {{booking.arrival?.time | date : 'shortTime'}}
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="card-body d-flex justify-content-center">
+    <a (click)="cancel(booking)" class="btn btn-warning btn-secondary center"><fa-icon [icon]="faXmark"></fa-icon>Cancel</a>
+  </div>
+</div>
